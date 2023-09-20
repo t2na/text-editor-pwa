@@ -32,7 +32,14 @@ export const getDb = async () => {
   const request = store.getAll();
   const result = await request;
   console.log('result.value', result);
-  return result;
-}; // console.error('getDb not implemented');
+
+  if (!result.length) {
+    return null;
+  } else {
+    return result[0].value
+  }
+};
+
+// console.error('getDb not implemented');
 
 initdb();
